@@ -1,0 +1,95 @@
+@use 'header';
+
+
+.main {
+background-color: #F3F5F5;  
+}
+
+.main {
+
+  .main-center {
+    margin: 0 auto;
+    width:96vw;
+    max-width:1200px;
+    display: flex;
+    
+  }
+
+  h2 {
+    font-size:2.4rem;
+    color:header.$dark-grey;
+    margin: 2rem 0rem;
+  }
+}
+
+.menu {
+ width:70%;
+}
+
+.global-card {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-dish {
+  width: 50%;
+  min-width: 30rem;
+  padding: 0rem 5rem 5rem 0rem;
+  
+}
+
+.dish{
+  height: 16rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  padding:2rem;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+
+.dish {
+
+  h3 {
+    font-size: 1.8rem;
+    color:header.$dark-grey;
+    font-weight: 600;
+
+  }
+
+  .dish-text {
+  }
+
+  .dish-description  {
+    font-size: 1.4rem;
+    color:header.$light-grey;
+    line-height: 1.5;
+    margin: 0rem 0rem 1rem 0rem;
+    font-weight:300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height:4.5rem;
+  }
+
+  .dish-picture {
+    height:13rem;
+    width:13rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+  }
+
+.dish-price   {
+  font-size: 2rem;
+  color:header.$light-grey;
+}
+}
+
+
+
+
+.shopping-cart {
+  width:30%;
+  background-color: header.$light-grey;
+  position: sticky;
+}

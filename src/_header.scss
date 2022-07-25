@@ -1,0 +1,63 @@
+$dark-grey : #444949;
+$light-grey: #868A8A;
+
+header {
+    background-color: white;
+}
+
+header {
+
+    .top-bar {
+       height:6rem;
+       border-bottom: 1px solid #e9ebeb;
+    }
+
+    .top-bar-center {
+        margin: 0 auto;
+        width:96vw;
+        max-width:1200px;
+        height:6rem;
+        display: flex;
+        align-items: center;
+      
+    }
+
+    .logo img {
+        height:4rem;
+    }
+
+    .info-restaurant {
+        margin: 0 auto;
+        width:96vw;
+        max-width:1200px;
+        display: flex;
+        padding: 3rem 0;
+    }
+
+    .text-restaurant {
+        margin-right:3rem;
+    }
+
+    .name-restaurant {
+        font-size: 3.2rem;
+        font-weight: 600;
+        color:$dark-grey;
+        margin-top:0.6rem;
+        margin-bottom:3rem;
+    }
+
+    .description-restaurant {
+        font-size: 1.9rem;
+        color: $light-grey;
+        font-weight:300;
+        line-height: 1.5;
+    }
+
+    .picture-restaurant {
+        width:35rem;
+        border-radius: 0.5rem;
+    }
+
+}
+
+
