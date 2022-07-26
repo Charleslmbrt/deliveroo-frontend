@@ -8,7 +8,66 @@
   .shopping-cart {
 
     .shopping-cart-card {
-        margin:30px;
-        background-color: white;
+   box-shadow: 0 22px 24px 0 rgb(46 51 51 / 7%);
+        background: #fff;
+        border-radius: 4px;
+        align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin: 30px 0;
+    }
+
+    .validate {
+        display: block;
+        margin: 10px;
+        border-radius: 5px;
+        padding: 1rem;
+        background: #00cdbd;
+        color: #fff;
+        border: none;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+.cart-validate {
+    margin: 10px;
+   text-align: right;
+}
+  }
+
+
+  .cart-container {
+
+    .cart-items-line {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .cart-items-counter {
+        display: flex;
+        
     }
   }
+
+
+  .cart-result {
+
+    .cart-result-line {
+        display: flex;
+        justify-content: space-between;
+    }
+
+     .cart-result-name {
+        text-align: left;
+     }
+  }
+
+  .cart-total {
+
+    .cart-total-name {
+        text-align: left;
+     }
+
+  }
+

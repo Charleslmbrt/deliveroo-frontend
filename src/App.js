@@ -8,9 +8,7 @@ import bgDeliveroo from "./assets/img/bg-deliveroo.svg";
 function App() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [title, setTitle] = useState([]);
-  const [counter, setCounter] = useState([]);
-  const [total, setTotal] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,22 +27,17 @@ function App() {
     fetchData();
   }, []);
 
-  // const newTotal = counter + 2.5;
+  const handleClickCartAdd = (dish) => {
+    dish.quantity = 1;
+    const newCart = [...cart];
+    newCart.push({
+      id: dish.id,
+      title: dish.title,
+      quantity: dish.quantity,
+      price: dish.price,
+    });
 
-  const handleClickCartAdd = (index) => {
-    const newTitle = [...title];
-    newTitle[index] = newTitle + data.categories[0].meals[0].title;
-    setTitle(newTitle);
-
-    const newCounter = [...counter];
-    newCounter[index] = newCounter + data.categories[0].meals[0].price;
-    setCounter(newCounter);
-
-    const newTotal = [...total];
-    let totalMeal = data.categories[0].meals[0].price;
-    let fraisDeLivraison = 2.5;
-    newTotal[index] = newTotal + totalMeal + fraisDeLivraison;
-    setTotal(newTotal);
+    setCart(newCart);
   };
 
   return (
@@ -70,7 +63,7 @@ function App() {
                               <div key={index} className="card-dish">
                                 <div
                                   onClick={() => {
-                                    handleClickCartAdd(index);
+                                    handleClickCartAdd(dish);
                                   }}
                                   className="dish"
                                 >
@@ -99,22 +92,78 @@ function App() {
                   );
                 })}
               </div>
-              {/* //dklfslkfjgkldfjglkfdjgjdlfkj //dklfslkfjgkldfjglkfdjgjdlfkj
-              //dklfslkfjgkldfjglkfdjgjdlfkj //dklfslkfjgkldfjglkfdjgjdlfkj
-              //dklfslkfjgkldfjglkfdjgjdlfkj //dklfslkfjgkldfjglkfdjgjdlfkj */}
+
               <div className="shopping-cart">
                 <div className="shopping-cart-card">
-                  <button>Valider mon panier</button>
+                  <button className="validate">Valider mon panier</button>
+
                   <div className="cart-validate">
-                    <p>{title}</p>
-                    <p>{counter}</p>
-                    <p>{total}</p>
+                    {cart.map((dish, index) => {
+                      return (
+                        // <div key={dish.id} className="basket">
+                        <div key={index} className="cart-container">
+                          <div className="cart-items">
+                            <div className="cart-items-line">
+                              <div className="cart-items-counter">
+                                {dish.quantity <= 0
+                                  ? cart.splice(index, 1)
+                                  : ""}
+                                <button
+                                  onClick={() => {
+                                    const newCart = [...cart];
+                                    newCart[index].quantity--;
+                                    setCart(newCart);
+                                  }}
+                                >
+                                  -
+                                </button>
+                                <h1>{dish.quantity}</h1>
+                                <button
+                                  onClick={() => {
+                                    const newCart = [...cart];
+                                    newCart[index].quantity++;
+                                    setCart(newCart);
+                                  }}
+                                >
+                                  +
+                                </button>
+                              </div>
+                              <div className="cart-items-name">
+                                {" "}
+                                <p>{dish.title}</p>
+                              </div>
+                              <div className="cart-items-price">
+                                <p>{(dish.price * dish.quantity).toFixed(2)}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+
+                    <div className="cart-result">
+                      <div className="cart-result-line">
+                        <div className="cart-result-name">
+                          <p>Sous-total</p>
+                        </div>
+                        <div className="cart-result-price"></div>
+                      </div>
+
+                      <div className="cart-result-line">
+                        <div className="cart-result-name">
+                          <p>Frais de livraison</p>
+                        </div>
+                        <div className="cart-result-price">2.50€</div>
+                      </div>
+                    </div>
+
+                    <div className="cart-total">
+                      <div className="cart-total-name">TOTAL</div>
+                      <div className="cart-total-price"></div>
+                    </div>
                   </div>
                 </div>
               </div>
-              {/* //dklfslkfjgkldfjglkfdjgjdlfkj //dklfslkfjgkldfjglkfdjgjdlfkj
-              //dklfslkfjgkldfjglkfdjgjdlfkj //dklfslkfjgkldfjglkfdjgjdlfkj
-              //dklfslkfjgkldfjglkfdjgjdlfkj //dklfslkfjgkldfjglkfdjgjdlfkj */}
             </div>
           </div>
         </div>
