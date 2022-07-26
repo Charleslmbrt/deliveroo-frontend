@@ -1,4 +1,5 @@
 @use 'header';
+@use 'shopping-cart';
 
 
 .main {
@@ -83,13 +84,4 @@ background-color: #F3F5F5;
   font-size: 2rem;
   color:header.$light-grey;
 }
-}
-
-
-
-
-.shopping-cart {
-  width:30%;
-  background-color: header.$light-grey;
-  position: sticky;
 }

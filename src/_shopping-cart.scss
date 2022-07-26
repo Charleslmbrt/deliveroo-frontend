@@ -1,0 +1,14 @@
+@use 'header';
+
+.shopping-cart {
+    width:30%;
+    position: sticky;
+  }
+
+  .shopping-cart {
+
+    .shopping-cart-card {
+        margin:30px;
+        background-color: white;
+    }
+  }
